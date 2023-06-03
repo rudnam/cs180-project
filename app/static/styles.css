@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+:root {
+  --white: #e1e7ef;
+  --black: #030711;
+  --black-hover: #0f182d;
+  --blue: #36a3ff;
+  --light: #a9adc1;
+  --grey: #2e3039;
+  --light-sub: #7a7c85;
+  --red: #ff4545;
+  --yellow: #ffd644;
+  --transparent: #2e303941;
+  --default-width: min(800px, 100%);
+
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--black);
+  border-bottom: 1px solid var(--black-hover);
+}
+  
+.navbar li {
+  float: left;
+}
+  
+.navbar li a {
+  display: block;
+  color: var(--white);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+  
+.navbar li a:hover {
+  background-color: var(--black-hover);
+}
+
+.input-form {
+  text-align: center;
+}

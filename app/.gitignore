@@ -1,0 +1,32 @@
+# Python virtual environment
+.venv/
+
+# Compiled Python files
+*.pyc
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# Local development configuration
+instance/
+
+# Dependencies
+/venv/
+/.venv/
+/pip-selfcheck.json
+
+# Built application files
+/__pycache__/
+*.pyo
+*.pyd
+
+# Editor and IDE files
+.vscode/
+.idea/
+
+# System or temporary files
+.DS_Store
+Thumbs.db
