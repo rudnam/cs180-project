@@ -10,7 +10,7 @@ git clone https://github.com/rudnam/cs180-project.git
 ```
 - Create environment
 ```console
-cd cs180-project/app
+cd cs180-project/api
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
