@@ -26,13 +26,19 @@ html {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.navbar {
+  margin-left: auto;
+  text-align: center;
+  border-bottom: 1px solid var(--black-hover);
+}
+
 .navbar ul {
+  display: inline-block;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: var(--black);
-  border-bottom: 1px solid var(--black-hover);
 }
   
 .navbar li {
