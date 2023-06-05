@@ -111,5 +111,9 @@
         "Dug well",
         "Others",
         "Peddler"
+    ],
+    "electricity": [
+        "Has electricity",
+        "No electricity"
     ]
 }
