@@ -9,16 +9,12 @@ from io import BytesIO
 app = Flask(__name__)
 
 # Load the KMeans model from the pickle file
-url = 'https://raw.githubusercontent.com/rudnam/cs180-project/main/api/files/TEST_kmeans_model.pkl'
-kmeans_model = joblib.load(BytesIO(requests.get(url).content))
-# with open('TEST_kmeans_model.pkl', 'rb') as file:
-#     kmeans_model = pickle.load(file)
+with open('TEST_kmeans_model.pkl', 'rb') as file:
+    kmeans_model = pickle.load(file)
 
 # Load the KMeans clustering results from the pickle file
-url = 'https://raw.githubusercontent.com/rudnam/cs180-project/main/api/files/TEST_kmeans_clustering.pkl'
-kmeans_clustering = joblib.load(BytesIO(requests.get(url).content))
-# with open('TEST_kmeans_clustering.pkl', 'rb') as file:
-#     kmeans_clustering = pickle.load(file)
+with open('TEST_kmeans_clustering.pkl', 'rb') as file:
+    kmeans_clustering = pickle.load(file)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
