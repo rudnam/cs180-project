@@ -1,10 +1,6 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
-import requests
-import joblib
-from io import BytesIO
-
 
 app = Flask(__name__)
 
