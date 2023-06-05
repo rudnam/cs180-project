@@ -1,25 +1,16 @@
 from flask import Flask, render_template, request
-from sklearn.cluster import KMeans
-import numpy as np
 import pickle
+import numpy as np
 
 app = Flask(__name__)
-kmeans_model = KMeans(n_clusters=3)
 
-# Sample data for demonstration
-X = np.array([[1, 2], [1.5, 1.8], [5, 8], [8, 8], [1, 0.6], [9, 11]])
+# Load the KMeans model from the pickle file
+with open('TEST_kmeans_model.pkl', 'rb') as file:
+    kmeans_model = pickle.load(file)
 
-# Fit the model with the sample data
-kmeans_model.fit(X)
-
-# # Load the KMeans model from the pickle file
-# with open('kmeans_model.pkl', 'rb') as file:
-#     kmeans_model = pickle.load(file)
-
-# # Load the KMeans clustering results from the pickle file
-# with open('kmeans_clustering.pkl', 'rb') as file:
-#     kmeans_clustering = pickle.load(file)
-
+# Load the KMeans clustering results from the pickle file
+with open('TEST_kmeans_clustering.pkl', 'rb') as file:
+    kmeans_clustering = pickle.load(file)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
