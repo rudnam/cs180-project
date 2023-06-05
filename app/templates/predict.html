@@ -1,0 +1,218 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  - Predict
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <h1>Household classifier</h1>
+    <form id="income-form" action="/predict" method="POST">
+      <div class="form-grid">
+        <div class="form-container">
+          <h2>Main information</h2>
+  
+          <label for="total-household-income">Total Household Income:</label>
+          <input type="range" id="total-household-income" name="total-household-income" min="0" max="1000000" class="slider">
+          <input type="text" id="total-household-income-display" name="total-household-income-display">
+  
+          <label for="region">Region:</label>
+          <select name="region" id="region">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="main-source-of-income">Main Source of Income:</label>
+          <select name="main-source-of-income" id="main-source-of-income">
+            <option disabled>Choose an option</option>
+          </select>
+        </div>
+  
+        <div class="form-container">
+          <h2>Household head</h2>
+  
+          <label for="household-head-sex">Household head sex:</label>
+          <select name="household-head-sex" id="household-head-sex">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="household-head-marital-status">Household head marital status:</label>
+          <select name="household-head-marital-status" id="household-head-marital-status">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="household-head-job-or-business-indicator">Household head job or business indicator:</label>
+          <select name="household-head-job-or-business-indicator" id="household-head-job-or-business-indicator">
+            <option disabled>Choose an option</option>
+          </select>
+  
+        </div>
+        <div class="form-container">
+          <h2>Household family</h2>
+  
+          <label for="type-of-household">Type of household:</label>
+          <select name="type-of-household" id="type-of-household">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="total-number-of-family-members">Total number of family members:</label>
+          <input type="range" id="total-number-of-family-members" name="total-number-of-family-members" min="0" max="20" class="slider">
+          <input type="text" id="total-number-of-family-members-display" name="total-number-of-family-members-display">
+  
+          <label for="members-with-age-less-than-5-year-old">Members with age less than 5 year old:</label>
+          <input type="range" id="members-with-age-less-than-5-year-old" name="members-with-age-less-than-5-year-old" min="0" max="10" class="slider">
+          <input type="text" id="members-with-age-less-than-5-year-old-display" name="members-with-age-less-than-5-year-old-display">
+  
+          <label for="members-with-age-5-17-years-old">Members with age 5-17 years old:</label>
+          <input type="range" id="members-with-age-5-17-years-old" name="members-with-age-5-17-years-old" min="0" max="10" class="slider">
+          <input type="text" id="members-with-age-5-17-years-old-display" name="members-with-age-5-17-years-old-display">
+  
+          <label for="total-number-of-family-members-employed">Total number of family members employed:</label>
+          <input type="range" id="total-number-of-family-members-employed" name="total-number-of-family-members-employed" min="0" max="10" class="slider">
+          <input type="text" id="total-number-of-family-members-employed-display" name="total-number-of-family-members-employed-display">
+          
+          
+        </div>
+        <div class="form-container">
+          <h2>Household Building</h2>
+  
+          <label for="type-of-building-house">Type of building house:</label>
+          <select name="type-of-building-house" id="type-of-building-house">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="type-of-roof">Type of roof:</label>
+          <select name="type-of-roof" id="type-of-roof">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="type-of-walls">Type of walls:</label>
+          <select name="type-of-roof" id="type-of-roof">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="tenure-status">Tenure status:</label>
+          <select name="type-of-roof" id="type-of-roof">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="house-floor-area">House floor area:</label>
+          <input type="range" id="house-floor-area" name="house-floor-area" min="0" max="1000" class="slider">
+          <input type="text" id="house-floor-area-display" name="house-floor-area-display">
+  
+          <label for="house-age">House age:</label>
+          <input type="range" id="house-age" name="house-age" min="0" max="100" class="slider">
+          <input type="text" id="house-age-display" name="house-age-display">
+  
+          <label for="number-of-bedrooms">Number of bedrooms:</label>
+          <input type="range" id="number-of-bedrooms" name="number-of-bedrooms" min="0" max="5" class="slider">
+          <input type="text" id="number-of-bedrooms-display" name="number-of-bedrooms-display">
+  
+          
+        </div>
+        <div class="form-container">
+          <h2>Household Utilities</h2>
+          <label for="toilet-facilities">Toilet facilities:</label>
+          <select name="toilet-facilities" id="toilet-facilities">
+            <option disabled>Choose an option</option>
+          </select>
+          
+          <label for="main-source-of-water-supply">Main source of water supply:</label>
+          <select name="main-source-of-water-supply" id="main-source-of-water-supply">
+            <option disabled>Choose an option</option>
+          </select>
+  
+          <label for="electricity">Electricity:</label>
+          <select name="electricity" id="electricity">
+            <option disabled>Choose an option</option>
+          </select>
+        </div> 
+  
+        <div class="form-container">
+          <h2>Expenditures</h2>
+  
+          <label for="total-food-expenditure">Total Food Expenditure:</label>
+          <input type="range" id="total-food-expenditure" name="total-food-expenditure" min="0" max="100000" class="slider">
+          <input type="text" id="total-food-expenditure-display" name="total-food-expenditure-display">
+  
+          <label for="bread-and-cereals-expenditure">Bread and Cereals Expenditure:</label>
+          <input type="range" id="bread-and-cereals-expenditure" name="bread-and-cereals-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="bread-and-cereals-expenditure-display" name="bread-and-cereals-expenditure-display">
+  
+          <label for="total-rice-expenditure">Total Rice Expenditure:</label>
+          <input type="range" id="total-rice-expenditure" name="total-rice-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="total-rice-expenditure-display" name="total-rice-expenditure-display">
+  
+          <label for="meat-expenditure">Meat Expenditure:</label>
+          <input type="range" id="meat-expenditure" name="meat-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="meat-expenditure-display" name="meat-expenditure-display">
+  
+          <label for="total-fish-and-marine-products-expenditure">Total Fish and Marine products Expenditure:</label>
+          <input type="range" id="total-fish-and-marine-products-expenditure" name="total-fish-and-marine-products-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="total-fish-and-marine-products-expenditure-display" name="total-fish-and-marine-products-expenditure-display">
+  
+          <label for="fruit-expenditure">Fruit Expenditure:</label>
+          <input type="range" id="fruit-expenditure" name="fruit-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="fruit-expenditure-display" name="fruit-expenditure-display">
+  
+          <label for="vegetables-expenditure">Vegetables Expenditure:</label>
+          <input type="range" id="vegetables-expenditure" name="vegetables-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="vegetables-expenditure-display" name="vegetables-expenditure-display">
+  
+          <label for="restaurant-and-hotels-expenditure">Restaurant and Hotels Expenditure:</label>
+          <input type="range" id="restaurant-and-hotels-expenditure" name="restaurant-and-hotels-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="restaurant-and-hotels-expenditure-display" name="restaurant-and-hotels-expenditure-display">
+  
+          <label for="alcoholic-beverages-expenditure">Alcoholic Beverages Expenditure:</label>
+          <input type="range" id="restaurant-and-hotels-expenditure" name="restaurant-and-hotels-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="restaurant-and-hotels-expenditure-display" name="restaurant-and-hotels-expenditure-display">
+  
+          <label for="tobacco-expenditure">Tobacco Expenditure:</label>
+          <input type="range" id="tobacco-expenditure" name="tobacco-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="tobacco-expenditure-display" name="tobacco-expenditure-display">
+  
+          <label for="clothing-footwear-and-other-wear-expenditure">Clothing, Footwear, and Other wear Expenditure:</label>
+          <input type="range" id="clothing-footwear-and-other-wear-expenditure" name="clothing-footwear-and-other-wear-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="clothing-footwear-and-other-wear-expenditure-display" name="clothing-footwear-and-other-wear-expenditure-display">
+  
+          <label for="housing-and-water-expenditure">Housing and Water Expenditure:</label>
+          <input type="range" id="housing-and-water-expenditure" name="housing-and-water-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="housing-and-water-expenditure-display" name="housing-and-water-expenditure-display">
+  
+          <label for="imputed-house-rental-value">Imputed House Rental Value:</label>
+          <input type="range" id="imputed-house-rental-value" name="imputed-house-rental-value" min="0" max="10000" class="slider">
+          <input type="text" id="imputed-house-rental-value-display" name="imputed-house-rental-value-display">
+  
+          <label for="medical-care-expenditure">Medical Care Expenditure:</label>
+          <input type="range" id="medical-care-expenditure" name="medical-care-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="medical-care-expenditure-display" name="medical-care-expenditure-display">
+  
+          <label for="transportation-expenditure">Transportation Expenditure:</label>
+          <input type="range" id="transportation-expenditure" name="medical-care-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="transportation-expenditure-display" name="medical-care-expenditure-display">
+  
+          <label for="communication-expenditure">Communication Expenditure:</label>
+          <input type="range" id="communication-expenditure" name="communication-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="communication-expenditure-display" name="communication-expenditure-display">
+  
+          <label for="education-expenditure">Education Expenditure:</label>
+          <input type="range" id="education-expenditure" name="education-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="education-expenditure-display" name="education-expenditure-display">
+  
+          <label for="miscellaneous-goods-and-services-expenditure">Miscellaneous Goods and Services Expenditure:</label>
+          <input type="range" id="miscellaneous-goods-and-services-expenditure" name="miscellaneous-goods-and-services-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="miscellaneous-goods-and-services-expenditure-display" name="miscellaneous-goods-and-services-expenditure-display">
+  
+          <label for="special-occasions-expenditure">Special Occasions Expenditure:</label>
+          <input type="range" id="special-occasions-expenditure" name="special-occasions-expenditure" min="0" max="10000" class="slider">
+          <input type="text" id="special-occasions-expenditure-display" name="special-occasions-expenditure-display">
+  
+          <label for="crop-farming-and-gardening-expenses">Crop Farming and Gardening Expenses:</label>
+          <input type="range" id="crop-farming-and-gardening-expenses" name="crop-farming-and-gardening-expenses" min="0" max="10000" class="slider">
+          <input type="text" id="crop-farming-and-gardening-expenses-display" name="crop-farming-and-gardening-expenses-display">
+        </div>
+      </div>
+      <input id="predict" type="submit" value="Predict">
+      <script src="{{ url_for('static', filename='predict.js') }}"></script>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,115 @@
+{
+    "region": [
+        "CAR",
+        "Caraga",
+        "VI - Western Visayas",
+        "V - Bicol Region",
+        " ARMM",
+        "III - Central Luzon",
+        "II - Cagayan Valley",
+        "IVA - CALABARZON",
+        "VII - Central Visayas",
+        "X - Northern Mindanao",
+        "XI - Davao Region",
+        "VIII - Eastern Visayas",
+        "I - Ilocos Region",
+        "NCR",
+        "IVB - MIMAROPA",
+        "XII - SOCCSKSARGEN",
+        "IX - Zasmboanga Peninsula"
+    ],
+    "main-source-of-income": [
+        "Wage/Salaries",
+        "Other sources of Income",
+        "Enterpreneurial Activities"
+    ],
+    "household-head-sex": [
+        "Female",
+        "Male"
+    ],
+    "household-head-marital-status": [
+        "Single",
+        "Married",
+        "Widowed",
+        "Divorced/Separated",
+        "Annulled",
+        "Unknown"
+    ],
+    "household-head-job-or-business-indicator": [
+        "With Job/Business",
+        "No Job/Business"
+    ],
+    "household-head-class-of-worker": [
+        "Worked for government/government corporation",
+        "Worked for private establishment",
+        "Employer in own family-operated farm or business",
+        "Self-employed wihout any employee",
+        "NaN",
+        "Worked without pay in own family-operated farm or business",
+        "Worked for private household",
+        "Worked with pay in own family-operated farm or business"
+    ],
+    "type-of-household": [
+        "Extended Family",
+        "Single Family",
+        "Two or More Nonrelated Persons/Members"
+    ],
+    "type-of-building-house": [
+        "Single house",
+        "Duplex",
+        "Commercial/industrial/agricultural building",
+        "Multi-unit residential",
+        "Institutional living quarter",
+        "Other building unit (e.g. cave, boat)"
+    ],
+    "type-of-roof": [
+        "Strong material(galvanized,iron,al,tile,concrete,brick,stone,asbestos)",
+        "Light material (cogon,nipa,anahaw)",
+        "Mixed but predominantly strong materials",
+        "Mixed but predominantly light materials",
+        "Salvaged/makeshift materials",
+        "Mixed but predominantly salvaged materials",
+        "Not Applicable"
+    ],
+    "type-of-walls": [
+        "Strong",
+        "Light",
+        "Quite Strong",
+        "Very Light",
+        "Salvaged",
+        "NOt applicable"
+    ],
+    "tenure-status": [
+        "Own or owner-like possession of house and lot",
+        "Rent-free house and lot with consent of owner",
+        "Own house, rent-free lot with consent of owner",
+        "Own house, rent-free lot without consent of owner",
+        "Own house, rent lot",
+        "Rent house/room including lot",
+        "Not Applicable",
+        "Rent-free house and lot without consent of owner"
+    ],
+    "toilet-facilities": [
+        "Water-sealed, sewer septic tank, used exclusively by household",
+        "Water-sealed, sewer septic tank, shared with other household",
+        "Closed pit",
+        "Water-sealed, other depository, used exclusively by household",
+        "Open pit",
+        "Water-sealed, other depository, shared with other household",
+        "None",
+        "Others"
+    ],
+    "main-source-of-water-supply": [
+        "Own use, faucet, community water system",
+        "Shared, faucet, community water system",
+        "Shared, tubed/piped deep well",
+        "Own use, tubed/piped deep well",
+        "Protected spring, river, stream, etc",
+        "Tubed/piped shallow well",
+        "Lake, river, rain and others",
+        "Unprotected spring, river, stream, etc",
+        "Dug well",
+        "Others",
+        "Peddler"
+    ]
+}

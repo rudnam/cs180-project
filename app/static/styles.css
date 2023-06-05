@@ -39,6 +39,7 @@ body {
 
 main {
   height: auto;
+  margin-bottom: 20px;
 }
 
 .navbar {
@@ -77,10 +78,57 @@ main {
   text-align: center;
 }
 
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-grid {
+  --auto-grid-min-size: 16rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  grid-gap: 1rem;
+}
+
+.form-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#income-form select {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#form-submit {
+  display: flex;
+  justify-content: center;
+  grid-column: 1 / -1;
+}
+
+#predict {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid var(--white);
+  background-color: var(--black);
+  color: var(--white);
+  width: 200px;
+  font-size: 24px;
+}
+
+#predict:hover {
+  background-color: var(--black-hover);
+}
+
 footer {
   margin-top: auto;
   margin-bottom: 5px;
   text-align: center;
+  padding: 10px 0;
 }
 
 footer a {
