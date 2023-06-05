@@ -27,12 +27,9 @@ def index():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
-        x = float(request.form.get('x'))
-        y = float(request.form.get('y'))
-        point = np.array([[x, y]])
-        cluster_label = kmeans_model.predict(point)[0]
-        result = {'x': x, 'y': y, 'cluster_label': cluster_label}
-        return render_template('index.html', result=result)
+        dict_data = request.form.to_dict()
+        print(dict_data)
+        return render_template('predict.html', result=None)
 
     return render_template('predict.html')
 
