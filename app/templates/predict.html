@@ -10,16 +10,20 @@
     <form id="income-form" action="/predict" method="POST">
       <div class="form-grid">
         <div class="form-container">
-          <h2>Main information</h2>
-  
-          <label for="total-household-income">Total Household Income:</label>
-          <input required type="range" id="total-household-income" name="total-household-income" min="0" max="1000000" class="slider">
-          <input required type="text" id="total-household-income-display" name="total-household-income-display">
+          <h2>Region and Income</h2>
   
           <label for="region">Region:</label>
           <select required required name="region" id="region">
             <option value="" disabled selected>Select an option</option>
           </select>
+
+          <label for="total-household-income">Total Household Income:</label>
+          <input required type="range" id="total-household-income" name="total-household-income" min="0" max="1000000" class="slider">
+          <input required type="text" id="total-household-income-display" name="total-household-income-display">
+
+          <label for="total-income-from-entrepreneurial-acitivites">Total income from entrepreneurial activities:</label>
+          <input required type="range" id="total-income-from-entrepreneurial-acitivites" name="total-income-from-entrepreneurial-acitivites" min="0" max="1000000" class="slider">
+          <input required type="text" id="total-income-from-entrepreneurial-acitivites-display" name="total-income-from-entrepreneurial-acitivites-display">
   
           <label for="main-source-of-income">Main Source of Income:</label>
           <select required name="main-source-of-income" id="main-source-of-income">
@@ -34,9 +38,18 @@
           <select required name="household-head-sex" id="household-head-sex">
             <option value="" disabled selected>Select an option</option>
           </select>
+
+          <label for="household-head-age">Household head age:</label>
+          <input required type="range" id="household-head-age" name="household-head-age" min="0" max="100" class="slider">
+          <input required type="text" id="household-head-age-display" name="household-head-age-display">
   
           <label for="household-head-marital-status">Household head marital status:</label>
           <select required name="household-head-marital-status" id="household-head-marital-status">
+            <option value="" disabled selected>Select an option</option>
+          </select>
+
+          <label for="household-head-class-of-worker">Household head class of worker:</label>
+          <select required name="household-head-class-of-worker" id="household-head-class-of-worker">
             <option value="" disabled selected>Select an option</option>
           </select>
   
@@ -44,8 +57,8 @@
           <select required name="household-head-job-or-business-indicator" id="household-head-job-or-business-indicator">
             <option value="" disabled selected>Select an option</option>
           </select>
-  
         </div>
+
         <div class="form-container">
           <h2>Household family</h2>
   
@@ -69,9 +82,8 @@
           <label for="total-number-of-family-members-employed">Total number of family members employed:</label>
           <input required type="range" id="total-number-of-family-members-employed" name="total-number-of-family-members-employed" min="0" max="10" class="slider">
           <input required type="text" id="total-number-of-family-members-employed-display" name="total-number-of-family-members-employed-display">
-          
-          
         </div>
+
         <div class="form-container">
           <h2>Household Building</h2>
   
@@ -86,12 +98,12 @@
           </select>
   
           <label for="type-of-walls">Type of walls:</label>
-          <select required name="type-of-roof" id="type-of-roof">
+          <select required name="type-of-walls" id="type-of-walls">
             <option value="" disabled selected>Select an option</option>
           </select>
   
           <label for="tenure-status">Tenure status:</label>
-          <select required name="type-of-roof" id="type-of-roof">
+          <select required name="tenure-status" id="tenure-status">
             <option value="" disabled selected>Select an option</option>
           </select>
   
@@ -107,10 +119,6 @@
           <input required type="range" id="number-of-bedrooms" name="number-of-bedrooms" min="0" max="5" class="slider">
           <input required type="text" id="number-of-bedrooms-display" name="number-of-bedrooms-display">
   
-          
-        </div>
-        <div class="form-container">
-          <h2>Household Utilities</h2>
           <label for="toilet-facilities">Toilet facilities:</label>
           <select required name="toilet-facilities" id="toilet-facilities">
             <option value="" disabled selected>Select an option</option>
@@ -125,8 +133,68 @@
           <select required name="electricity" id="electricity">
             <option value="" disabled selected>Select an option</option>
           </select>
-        </div> 
-  
+
+          <label for="agricultural-household-indicator">Agricultural Household Indicator:</label>
+          <input required type="range" id="agricultural-household-indicator" name="agricultural-household-indicator" min="0" max="2" class="slider">
+          <input required type="text" id="agricultural-household-indicator-display" name="agricultural-household-indicator-display">
+        </div>
+        
+        <div class="form-container">
+          <h2>Properties</h2>
+
+          <label for="number-of-television">Number of television:</label>
+          <input required type="range" id="number-of-television" name="number-of-television" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-television-display" name="number-of-television-display">
+
+          <label for="number-of-cd-vcd-dvd">Number of cd, vcd, dvd:</label>
+          <input required type="range" id="number-of-cd-vcd-dvd" name="number-of-cd-vcd-dvd" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-cd-vcd-dvd-display" name="number-of-cd-vcd-dvd-display">
+
+          <label for="number-of-component-stereo-set">Number of component stereo set:</label>
+          <input required type="range" id="number-of-component-stereo-set" name="number-of-component-stereo-set" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-component-stereo-set-display" name="number-of-component-stereo-set-display">
+
+          <label for="number-of-refrigerator-freezer">Number of refrigerator, freezer:</label>
+          <input required type="range" id="number-of-refrigerator-freezer" name="number-of-refrigerator-freezer" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-refrigerator-freezer-display" name="number-of-refrigerator-freezer-display">
+
+          <label for="number-of-washing-machine">Number of washing machine:</label>
+          <input required type="range" id="number-of-washing-machine" name="number-of-washing-machine" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-washing-machine-display" name="number-of-washing-machine-display">
+
+          <label for="number-of-airconditioner">Number of airconditioner:</label>
+          <input required type="range" id="number-of-airconditioner" name="number-of-airconditioner" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-airconditioner-display" name="number-of-airconditioner-display">
+
+          <label for="number-of-car-jeep-van">Number of car, jeep, van:</label>
+          <input required type="range" id="number-of-car-jeep-van" name="number-of-car-jeep-van" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-car-jeep-van-display" name="number-of-car-jeep-van-display">
+
+          <label for="number-of-landline-wireless-telephones">Number of landline wireless telephones:</label>
+          <input required type="range" id="number-of-landline-wireless-telephones" name="number-of-landline-wireless-telephones" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-landline-wireless-telephones-display" name="number-of-landline-wireless-telephones-display">
+
+          <label for="number-of-cellular-phone">Number of cellular phone:</label>
+          <input required type="range" id="number-of-cellular-phone" name="number-of-cellular-phone" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-cellular-phone-display" name="number-of-cellular-phone-display">
+
+          <label for="number-of-personal-computer">Number of personal computer:</label>
+          <input required type="range" id="number-of-personal-computer" name="number-of-personal-computer" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-personal-computer-display" name="number-of-personal-computer-display">
+
+          <label for="number-of-stove-with-oven-gas-range">Number of stove with Oven/Gas range:</label>
+          <input required type="range" id="number-of-stove-with-oven-gas-range" name="number-of-stove-with-oven-gas-range" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-stove-with-oven-gas-range-display" name="number-of-stove-with-oven-gas-range-display">
+
+          <label for="number-of-motorized-banca">Number of motorized banca:</label>
+          <input required type="range" id="number-of-motorized-banca" name="number-of-motorized-banca" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-motorized-banca-display" name="number-of-motorized-banca-display">
+
+          <label for="number-of-motorcycle-tricycle">Number of motorcycle/tricycle:</label>
+          <input required type="range" id="number-of-motorcycle-tricycle" name="number-of-motorcycle-tricycle" min="0" max="10" class="slider">
+          <input required type="text" id="number-of-motorcycle-tricycle-display" name="number-of-motorcycle-tricycle-display">
+        </div>
+
         <div class="form-container">
           <h2>Expenditures</h2>
   
@@ -187,8 +255,8 @@
           <input required type="text" id="medical-care-expenditure-display" name="medical-care-expenditure-display">
   
           <label for="transportation-expenditure">Transportation Expenditure:</label>
-          <input required type="range" id="transportation-expenditure" name="medical-care-expenditure" min="0" max="10000" class="slider">
-          <input required type="text" id="transportation-expenditure-display" name="medical-care-expenditure-display">
+          <input required type="range" id="transportation-expenditure" name="transportation-expenditure" min="0" max="10000" class="slider">
+          <input required type="text" id="transportation-expenditure-display" name="transportation-expenditure-display">
   
           <label for="communication-expenditure">Communication Expenditure:</label>
           <input required type="range" id="communication-expenditure" name="communication-expenditure" min="0" max="10000" class="slider">
@@ -211,6 +279,7 @@
           <input required type="text" id="crop-farming-and-gardening-expenses-display" name="crop-farming-and-gardening-expenses-display">
         </div>
       </div>
+      
       <input id="predict" type="submit" value="Predict">
       <script src="{{ url_for('static', filename='predict.js') }}"></script>
     </form>
