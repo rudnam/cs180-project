@@ -283,5 +283,10 @@
       <input id="predict" type="submit" value="Predict">
       <script src="{{ url_for('static', filename='predict.js') }}"></script>
     </form>
+    {% if result %}
+    <div id="result">
+      <p>The data point belongs to cluster {{ result }}</p>
+    </div>
+    {% endif %}
   </div>
 {% endblock %}

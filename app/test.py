@@ -9,13 +9,6 @@ cat_features = ['region', 'main-source-of-income', 'household-head-sex', 'househ
 df_income = df_orig.drop(columns = ['Household Head Highest Grade Completed', 'Household Head Occupation'])
 df_income.columns = [col.replace("/", " ").replace(",", "") for col in df_income.columns]
 df_income.columns = [col.replace(" - ", " ") for col in df_income.columns]
-df_income.columns = ["-".join(col.lower().split()) for col in df_income.columns]
+df_income.columns = ["_".join(col.lower().split()) for col in df_income.columns]
 
-cat_features = [col.replace("_", "-") for col in cat_features]
-cat_choices = {}
-for cat_feat in cat_features:
-    cat_choices[cat_feat] = df_income[cat_feat].unique().tolist()
-
-print(type(cat_choices))
-json_object = json.dumps(cat_choices, indent = 4) 
-print(json_object)
+print(['_'.join(col.split('-')) for col in cat_features])
