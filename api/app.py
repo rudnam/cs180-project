@@ -5,11 +5,11 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the KMeans model from the pickle file
-with open('TEST_kmeans_model.pkl', 'rb') as file:
+with open('_TEST_kmeans_model.pkl', 'rb') as file:
     kmeans_model = pickle.load(file)
 
 # Load the KMeans clustering results from the pickle file
-with open('TEST_kmeans_clustering.pkl', 'rb') as file:
+with open('_TEST_kmeans_clustering.pkl', 'rb') as file:
     kmeans_clustering = pickle.load(file)
 
 @app.route('/', methods=['GET', 'POST'])
