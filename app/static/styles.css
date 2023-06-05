@@ -19,6 +19,7 @@
 }
 
 html {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   background-color: var(--black);
@@ -26,8 +27,22 @@ html {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+main {
+  height: auto;
+}
+
 .navbar {
-  margin-left: auto;
+  padding-top: 5px;
   text-align: center;
   border-bottom: 1px solid var(--black-hover);
 }
@@ -35,7 +50,7 @@ html {
 .navbar ul {
   display: inline-block;
   list-style-type: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   overflow: hidden;
   background-color: var(--black);
@@ -51,6 +66,7 @@ html {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  transition: .2s;
 }
   
 .navbar li a:hover {
@@ -59,4 +75,19 @@ html {
 
 .input-form {
   text-align: center;
+}
+
+footer {
+  margin-top: auto;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+footer a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }

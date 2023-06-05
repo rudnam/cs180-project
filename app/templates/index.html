@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>KMeans Web App</title>
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
-</head>
-<body>
-    <div class="navbar">
-        <ul>
-            <li><a href=".">Home</a></li>
-            <li><a href=".">Contact</a></li>
-            <li><a href=".">About</a></li>
-        </ul> 
+{% extends "layout.html" %}
+
+{% block title %}
+    - Home
+{% endblock %}
+
+{% block main %}
+  <div class="input-form">
+    <h1>KMeans Web App</h1>
+    <form action="/" method="POST">
+      <label for="x">X-coordinate:</label>
+      <input type="text" id="x" name="x"><br><br>
+      <label for="y">Y-coordinate:</label>
+      <input type="text" id="y" name="y"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    {% if result %}
+    <div id="result">
+      <p>The data point ({{ result.x }}, {{ result.y }}) belongs to cluster {{ result.cluster_label }}</p>
     </div>
-    <div class="input-form">
-      <h1>KMeans Web App</h1>
-      <form action="/" method="POST">
-        <label for="x">X-coordinate:</label>
-        <input type="text" id="x" name="x"><br><br>
-        <label for="y">Y-coordinate:</label>
-        <input type="text" id="y" name="y"><br><br>
-        <input type="submit" value="Submit">
-      </form>
-      {% if result %}
-      <div id="result">
-        <p>The data point ({{ result.x }}, {{ result.y }}) belongs to cluster {{ result.cluster_label }}</p>
-      </div>
-      {% endif %}
-    </div>
-</body>
-</html>
+    {% endif %}
+  </div>
+{% endblock %}
