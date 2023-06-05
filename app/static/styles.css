@@ -85,14 +85,22 @@ main {
 }
 
 .form-grid {
-  --auto-grid-min-size: 16rem;
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
-  grid-gap: 1rem;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+/* @media (min-width: 600px) {
+  .form-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .form-grid { grid-template-columns: repeat(3, 1fr); }
+} */
+
 .form-container {
-  width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
