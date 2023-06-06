@@ -42,6 +42,10 @@ main {
   margin-bottom: 20px;
 }
 
+a {
+  color: var(--blue);
+}
+
 .navbar {
   padding-top: 5px;
   text-align: center;
@@ -91,14 +95,6 @@ main {
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
-
-/* @media (min-width: 600px) {
-  .form-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 900px) {
-  .form-grid { grid-template-columns: repeat(3, 1fr); }
-} */
 
 .form-container {
   display: flex;
