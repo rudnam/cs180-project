@@ -32,7 +32,7 @@ class HouseholdClustering():
       'household_utilities': self.describe_household_utilities(i),
       'properties': self.describe_properties(i)
     }
-    print(response)
+    # print(response)
     return response
   
   def describe_income(self, i):
