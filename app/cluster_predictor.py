@@ -65,8 +65,6 @@ class ClusterPredictor():
 
     # Standardize
     num_feat_sample = [col for col in self.num_features if col in df_sample.columns]
-    # num_cols_sample = new_num_cols_sample + num_feat_sample
-    # std_cols_sample = [f'{col}_std' for col in num_cols_sample]
     rstd_cat_cols_sample = [f'{col}_rstd' for col in self.cat_features if col in df_sample.columns]
     ranks_sample = []
     for col in rstd_cat_cols_sample:
