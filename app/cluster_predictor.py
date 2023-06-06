@@ -5,7 +5,7 @@ import pickle
 
 class ClusterPredictor():
   def __init__(self, transfer_data_path, transfer_df_income_path, best_k, pca_reduced=True):
-    # Load needed data from the pickle file
+    # Load transfer data from the pickle file
     with open(transfer_data_path, 'rb') as file:
       transfer_data = pickle.load(file)
     
