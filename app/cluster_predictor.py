@@ -51,23 +51,17 @@ class ClusterPredictor():
       return '_'.join(words.split(' '))
 
     df_sample = pd.DataFrame([website_data])
-    display_cols = [col for col in df_sample.columns if '-display' in col]
+
+    # Use data from displayed value instead of slider
+    display_cols = []
+    for col in df_sample.columns:
+      if '-display' in col:
+        df_sample[col.replace('-display','')] = df_sample[col]
+        display_cols.append(col)
+    
     if len(display_cols)>0: df_sample = df_sample.drop(columns = display_cols)
     df_sample.columns = [underscore_formatter(col) for col in df_sample.columns]
     df_sample.replace({'electricity': {'Has electricity': 1, 'No electricity': 0}}, inplace=True)
-
-    # One hot encoding
-    # new_num_cols_sample = []
-    # for feat in self.cat_features:
-    #   if feat not in df_sample.columns: continue
-    #   df_sample[feat].fillna("nan", inplace=True)
-    #   for uniq in self.df_income[feat].unique():
-    #     uniq0 = uniq
-    #     uniq = underscore_formatter(str(uniq))
-    #     new_col = f"{feat}_{uniq}"
-    #     new_num_cols_sample.append(new_col)
-    #     df_sample[new_col] = [int(uniq0==item) for item in df_sample[feat]]
-    # print(len(new_num_cols_sample), new_num_cols_sample)
 
     # Standardize
     num_feat_sample = [col for col in self.num_features if col in df_sample.columns]
