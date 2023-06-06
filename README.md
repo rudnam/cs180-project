@@ -10,11 +10,14 @@ In this project, a dataset based on the Family Income and Expenditure Survey (FI
 
 ## Dev
 
-- Clone the repository
+Clone the repository
+
 ```console
 git clone https://github.com/rudnam/cs180-project.git
 ```
-- Create environment
+
+Create environment
+
 ```console
 cd cs180-project/app
 python3 -m venv .venv
@@ -22,7 +25,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-- Start flask and visit `http://localhost:5000`
+Start flask and visit `http://localhost:5000`
+
 ```console
 python3 app.py
 ```
