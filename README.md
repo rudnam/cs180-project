@@ -1,4 +1,4 @@
-# cs-180-project: Predictive model of household income using clustering
+# CS 180 project: Predictive model of household income using clustering
 
 Jupyter notebook [link](https://colab.research.google.com/drive/1ZINpKCB4fgwIflOegEl8fXuPwnB5cwal?usp=sharing&authuser=1#scrollTo=XBLhtzz22Xw_)
 
