@@ -166,3 +166,17 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+input[type=range] {
+  width: 160px;
+}
+
+select {
+  width: 200px;
+  border-radius: 4px;
+}
+
+input[type=text] {
+  width: 145px;
+  border-radius: 4px;
+}
