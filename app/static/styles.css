@@ -42,6 +42,11 @@ main {
   margin-bottom: 20px;
 }
 
+ol, ul {
+  display: inline-block;
+  text-align: left;
+}
+
 a {
   color: var(--blue);
 }
@@ -116,16 +121,34 @@ a {
 
 #predict {
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 1px solid var(--white);
   background-color: var(--black);
   color: var(--white);
   width: 200px;
   font-size: 24px;
+  padding: 8px 20px;
 }
 
 #predict:hover {
   background-color: var(--black-hover);
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid var(--white);
+  background-color: var(--black);
+  color: var(--white);
+  width: 200px;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: var(--black-hover);
+  text-decoration: underline;
 }
 
 footer {
