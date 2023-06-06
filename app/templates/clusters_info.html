@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    - Cluster {{ results.cluster }}
+{% endblock %}
+
+{% block main %}
+  <div class="wide-container">
+    <h2>Cluster {{ results.cluster }} information</h2>
+    <h3>Number of households: {{ results.number_of_households }} / 40000 households</h3>
+    <div class="results-grid">
+      <div class="results-container">
+        <h2>Region and Income</h2>
+        <ul>
+          <li>Top regions:</li>
+          <ol>
+            {% for region_item in results.region %}
+              <li>{{ region_item }}</li>
+            {% endfor %}
+          </ol>
+
+          {% for income_item in results.income %}
+            <li>{{ income_item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="results-container">
+        <h2>Household head</h2>
+        <ul>
+          {% for household_head_item in results.household_head %}
+            <li>{{ household_head_item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="results-container">
+        <h2>Expenditure</h2>
+        <ul>
+          <li>{{ results.expenditure.median_food_expenditure }}</li>
+          <li>Top expenses:</li>
+          <ol>
+            {% for expenditure_item in results.expenditure.top_expenses %}
+              <li>{{ expenditure_item }}</li>
+            {% endfor %}
+          </ol>
+        </ul>
+      </div>
+      
+      <div class="results-container">
+        <h2>Household Utilities</h2>
+        <ul>
+          {% for household_utilities_item in results.household_utilities %}
+            <li>{{ household_utilities_item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="results-container">
+        <h2>Household Family</h2>
+        <ul>
+          {% for household_family_item in results.household_family %}
+            <li>{{ household_family_item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="results-container">
+        <h2>Household Building</h2>
+        <ul>
+          {% for household_building_item in results.household_building %}
+            <li>{{ household_building_item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <a href="/clusters"><button>Back to selection</button></a>
+  </div>
+{% endblock %}

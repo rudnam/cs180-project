@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    - Clusters
+{% endblock %}
+
+{% block main %}
+  <div class="container">
+    <h2>Click a cluster number to view the cluster's information.</h2>
+    <form action="/clusters" method="post">
+      <div class="button-grid">
+      </div>
+      <script src="{{ url_for('static', filename='clusters.js') }}"></script>
+    </form>
+    
+    
+    </div>
+  </div>
+{% endblock %}
