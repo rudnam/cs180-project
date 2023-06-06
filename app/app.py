@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from predict import ModelWrapper
+from cluster_predictor import ClusterPredictor
 import pickle
 import numpy as np
 
@@ -13,10 +13,9 @@ with open('TEST_kmeans_model.pkl', 'rb') as file:
 with open('TEST_kmeans_clustering.pkl', 'rb') as file:
     test_kmeans_clustering = pickle.load(file)
 
-model_path = 'kmeans_model.pkl'
-clustering_path = 'kmeans_clustering.pkl'
-
-model_wrapper = ModelWrapper(model_path, clustering_path)
+transfer_df_income_path = 'transfer_df_income.pkl'
+transfer_data_path = 'transfer_data.pkl'
+cluster_predictor = ClusterPredictor(transfer_data_path, transfer_df_income_path, 7)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -33,9 +32,9 @@ def index():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
-        dict_data = request.form.to_dict()
-        print(dict_data)
-        result = model_wrapper.predict(dict_data)
+        form_data = request.form.to_dict()
+        print(form_data)
+        result = cluster_predictor.predict(form_data)
         return render_template('predict.html', result=result)
 
     return render_template('predict.html')
