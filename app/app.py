@@ -18,6 +18,7 @@ def index():
 def predict():
     if request.method == 'POST':
         form_data = request.form.to_dict()
+        # print(form_data)
         cluster_number = cluster_predictor.predict(form_data)
         results = cluster_describer.summarize_cluster(cluster_number)
         return render_template('predict_results.html', results=results)

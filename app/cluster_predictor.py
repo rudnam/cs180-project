@@ -24,8 +24,8 @@ class ClusterPredictor():
     self.scaler = transfer_data['scaler']
     self.target_encoder = transfer_data['target_encoder']
     self.pca = transfer_data['pca']
-    default_center = [np.mean(df_final[col]) for col in self.cols_to_use]
-    self.default_center = pd.DataFrame([default_center], columns=self.cols_to_use)
+    default_center = [np.mean(self.df_final[col]) for col in self.df_final if col != 'region' and col not in self.cat_features]
+    self.default_center = pd.DataFrame([default_center], columns=[col for col in self.df_final.columns if col != 'region' and col not in self.cat_features])
   
   def get_df_sample(self, website_data):
 
@@ -47,6 +47,12 @@ class ClusterPredictor():
     display_cols = []
     for col in df_sample.columns:
       if '-display' in col:
+        # Drop empty columns
+        if df_sample[col][0] == '':
+          df_sample.drop(col.replace('-display',''), axis=1)
+          display_cols.append(col)
+          continue
+
         df_sample[col.replace('-display','')] = df_sample[col]
         display_cols.append(col)
     
@@ -54,6 +60,11 @@ class ClusterPredictor():
     df_sample.columns = [underscore_formatter(col) for col in df_sample.columns]
     df_sample.replace({'electricity': {'Has electricity': 1, 'No electricity': 0}}, inplace=True)
 
+    # Fill out missing numerical columns
+    missing_cols = [col for col in self.df_final[self.num_features].columns if col not in df_sample.columns]
+    missing_cols_values = [self.default_center.at[0, col] for col in missing_cols]
+    df_missing_cols = pd.DataFrame([missing_cols_values], columns=missing_cols)
+    df_sample = df_sample.join(df_missing_cols)
     
     to_target_encode = ['region']
     # One-hot encoding on categorical features
@@ -73,7 +84,7 @@ class ClusterPredictor():
     # Concatenate original dataframe, standardized dataframe, and the encoded dataframe
     df_clean = pd.concat([df_sample, df_standardized, df_onehot_encoded], axis=1)
 
-    # Fill out missing columns 
+    # Fill out the rest of the missing columns 
     missing_cols = [col for col in self.df_final[self.cols_to_use].columns if col not in df_clean.columns]
     missing_cols_values = [self.default_center.at[0, col] for col in missing_cols]
     df_missing_cols = pd.DataFrame([missing_cols_values], columns=missing_cols)
