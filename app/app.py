@@ -5,10 +5,10 @@ from household_clustering import HouseholdClustering
 app = Flask(__name__)
 
 k = 7
-transfer_df_income_path = 'transfer_df_income.pkl'
+transfer_df_path = 'transfer_df.pkl'
 transfer_data_path = 'transfer_data.pkl'
-cluster_predictor = ClusterPredictor(transfer_data_path, transfer_df_income_path, k)
-cluster_describer = HouseholdClustering(transfer_data_path,transfer_df_income_path, k)
+cluster_predictor = ClusterPredictor(transfer_data_path, transfer_df_path, k)
+cluster_describer = HouseholdClustering(transfer_data_path, transfer_df_path, k)
 
 @app.route('/', methods=['GET'])
 def index():

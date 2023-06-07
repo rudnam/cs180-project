@@ -3,26 +3,25 @@ import numpy as np
 import pickle
 
 class HouseholdClustering():
-  def __init__(self, transfer_data_path, transfer_df_income_path, best_k):
+  def __init__(self, transfer_data_path, transfer_df_path, k):
     # Load transfer data from the pickle file
-    with open(transfer_data_path, 'rb') as file:
-      transfer_data = pickle.load(file)
-    self.rstd_cols = transfer_data['rstd_cols']
+    transfer_data = pd.read_pickle(transfer_data_path)
 
-    # Load df_income from the pickle file
-    with open(transfer_df_income_path, 'rb') as file:
-      df_income = pickle.load(file)
+    # Load df_final from the pickle file
+    df_final = pd.read_pickle(transfer_df_path)
 
-    self.best_k = best_k
-    self.cluster_assignments = transfer_data['clusters_rstd'][best_k]
-    default_center = [df_income[col].mean() for col in self.rstd_cols]
-    self.default_center = pd.DataFrame([default_center], columns=self.rstd_cols)
-    self.df_income = df_income
+    self.df_final = df_final
+    self.cols = transfer_data['cols_to_use']
+
+    self.k = k
+    self.cluster_assignments = transfer_data['clusters'][k]
+    default_center = [self.df_final[col].mean() for col in self.cols]
+    self.default_center = pd.DataFrame([default_center], columns=self.cols)
   
   def summarize_cluster(self, i):
     response = {
       'cluster': i,
-      'number_of_households': len(self.df_income[self.cluster_assignments == i-1]),
+      'number_of_households': len(self.df_final[self.cluster_assignments == i-1]),
       'income': self.describe_income(i),
       'region': self.describe_region(i),
       'expenditure': self.describe_expenditure(i),
@@ -32,11 +31,11 @@ class HouseholdClustering():
       'household_utilities': self.describe_household_utilities(i),
       'properties': self.describe_properties(i)
     }
-    # print(response)
+
     return response
   
   def describe_income(self, i):
-    cluster_members = self.df_income[self.cluster_assignments == i-1]
+    cluster_members = self.df_final[self.cluster_assignments == i-1]
     average_income = np.mean(cluster_members['total_household_income'])
     median_income = np.median(cluster_members['total_household_income'])
     income_std = np.std(cluster_members['total_household_income'])
@@ -57,8 +56,8 @@ class HouseholdClustering():
     return ret
   
   def describe_region(self, i):
-    total = len(self.df_income[self.cluster_assignments == i-1])
-    df = self.df_income[self.cluster_assignments==i-1]
+    total = len(self.df_final[self.cluster_assignments == i-1])
+    df = self.df_final[self.cluster_assignments==i-1]
     df = df['region'].value_counts(sort=True)
 
     ret = []
@@ -78,7 +77,7 @@ class HouseholdClustering():
        'communication_expenditure', 'education_expenditure',
        'miscellaneous_goods_and_services_expenditure',
        'special_occasions_expenditure', 'crop_farming_and_gardening_expenses',]
-    df_cluster_members = self.df_income[self.cluster_assignments == i-1]
+    df_cluster_members = self.df_final[self.cluster_assignments == i-1]
     median_expenditure = [np.median(df_cluster_members[expd_col]) for expd_col in expenditure_cols[1:]]
     mean_expenditure = [np.mean(df_cluster_members[expd_col]) for expd_col in expenditure_cols[1:]]
     col_median = list(zip(expenditure_cols[1:], median_expenditure))
@@ -93,8 +92,8 @@ class HouseholdClustering():
     return ret
 
   def describe_household_head(self, i):
-    total = len(self.df_income[self.cluster_assignments == i-1])
-    df_cluster_members = self.df_income[self.cluster_assignments == i-1]
+    total = len(self.df_final[self.cluster_assignments == i-1])
+    df_cluster_members = self.df_final[self.cluster_assignments == i-1]
     df_male_female = df_cluster_members['household_head_sex'].value_counts(sort=True)
     df_marital_status = df_cluster_members['household_head_marital_status'].value_counts(sort=True)
     df_job_indicator = df_cluster_members['household_head_job_or_business_indicator'].value_counts(sort=True)
@@ -107,7 +106,7 @@ class HouseholdClustering():
     return ret
 
   def describe_housedold_family(self, i):
-    df_cluster_members = self.df_income[self.cluster_assignments == i-1]
+    df_cluster_members = self.df_final[self.cluster_assignments == i-1]
     df_household_type = df_cluster_members['type_of_household'].value_counts(sort=True)
     
     ret = []
@@ -119,7 +118,7 @@ class HouseholdClustering():
     return ret
 
   def describe_household_building(self, i):
-    df_cluster_members = self.df_income[self.cluster_assignments == i-1]
+    df_cluster_members = self.df_final[self.cluster_assignments == i-1]
     df_household_building = df_cluster_members['type_of_building_house'].value_counts(sort=True)
     df_roof = df_cluster_members['type_of_roof'].value_counts(sort=True)
     df_walls = df_cluster_members['type_of_walls'].value_counts(sort=True)
@@ -136,7 +135,7 @@ class HouseholdClustering():
     return ret
 
   def describe_household_utilities(self, i):
-    df_cluster_members = self.df_income[self.cluster_assignments == i-1]
+    df_cluster_members = self.df_final[self.cluster_assignments == i-1]
     df_toilet = df_cluster_members['toilet_facilities'].value_counts(sort=True)
     df_water = df_cluster_members['main_source_of_water_supply'].value_counts(sort=True)
     df_electricity = df_cluster_members['electricity'].value_counts(sort=True)
