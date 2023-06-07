@@ -9,7 +9,24 @@
     <h2>Project Summary</h2>
     <p>In this project, a <a href="https://www.kaggle.com/datasets/grosvenpaul/family-income-and-expenditure">dataset</a> based on the Family Income and Expenditure Survey (FIES) in
       the Philippines is put through K-means clustering. Through clustering, we aim to figure out possible classifications for households using the data from the dataset. We suspect that 
-      the clusters will be correlated with income or geographic areas from which a household belongs.</p>
+      the clusters will be correlated with income or geographic areas from which a household belongs.
+    </p>
+    <h2>Results</h2>
+    <p>The group managed to classify the dataset into 7 clusters. As was suspected, the clusters appear to have been mainly classified based on income, 
+      region, and expenditures.
+    </p>
+    <figure>
+      <img src="../static/inertia-plot.png" alt="2D Scatter plot" srcset="">
+      <figcaption>Inertia plot</figcaption>
+    </figure>
+    <figure>
+      <img src="../static/tsne_2d.png" alt="2D Scatter plot" srcset="">
+      <figcaption>2D Scatter plot</figcaption>
+    </figure>
+    <figure>
+      <embed type="text/html" src="../static/tsne_3d.html" style="width: 600px; height:600px;"> 
+      <figcaption>3D Scatter plot</figcaption>
+    </figure>
   </div>
 
 {% endblock %}

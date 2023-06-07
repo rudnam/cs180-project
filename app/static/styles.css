@@ -187,3 +187,7 @@ input[type=text] {
   width: 145px;
   border-radius: 4px;
 }
+
+embed, img {
+  max-width: 600px;
+}
