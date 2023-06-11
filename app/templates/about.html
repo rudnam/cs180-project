@@ -1,35 +1,35 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    - About
+		- About
 {% endblock %}
 
 {% block main %}
-  <div class="container">
-    <h2>Project Summary</h2>
-    <p>This project involves analyzing a <a href="https://www.kaggle.com/datasets/grosvenpaul/family-income-and-expenditure">dataset</a> 
-      derived from the Family Income and Expenditure Survey (FIES) in the Philippines using K-means clustering. The goal is to identify 
-      potential household classifications by leveraging the dataset's information. Our hypothesis suggests that these classifications will 
-      likely be associated with income levels and geographic regions.
-    </p>
-    <h2>Results</h2>
-    <p>The team successfully performed K-means clustering on the dataset, resulting in the identification of 7 distinct clusters. 
-      Consistent with our expectations, these clusters were primarily determined by factors such as income, region, and expenditure 
-      patterns. Notably, clusters 4 and 5 effectively represent the upper and lower socioeconomic classes, respectively, while the 
-      remaining clusters fall in between.
-    </p>
-    <figure>
-      <img src="../static/inertia-plot.png" alt="2D Scatter plot" srcset="">
-      <figcaption>Inertia plot</figcaption>
-    </figure>
-    <figure>
-      <img src="../static/tsne_2d.png" alt="2D Scatter plot" srcset="">
-      <figcaption>2D Scatter plot</figcaption>
-    </figure>
-    <figure>
-      <embed type="text/html" src="../static/tsne_3d.html" style="width: 600px; height:600px;"> 
-      <figcaption>3D Scatter plot</figcaption>
-    </figure>
-  </div>
+	<div class="container">
+		<h2>Project Summary</h2>
+		<p>This project involves analyzing a <a href="https://www.kaggle.com/datasets/grosvenpaul/family-income-and-expenditure">dataset</a> 
+			derived from the Family Income and Expenditure Survey (FIES) in the Philippines using K-means clustering. The goal is to identify 
+			potential household classifications by leveraging the dataset's information. Our hypothesis suggests that these classifications will 
+			likely be associated with income levels and geographic regions.
+		</p>
+		<h2>Results</h2>
+		<p>The team successfully performed K-means clustering on the dataset, resulting in the identification of 7 distinct clusters. 
+			Consistent with our expectations, these clusters were primarily determined by factors such as income, region, and expenditure 
+			patterns. Notably, clusters 4 and 5 effectively represent the upper and lower socioeconomic classes, respectively, while the 
+			remaining clusters fall in between.
+		</p>
+		<figure>
+			<img src="../static/inertia-plot.png" alt="2D Scatter plot" srcset="">
+			<figcaption>Inertia plot</figcaption>
+		</figure>
+		<figure>
+			<img src="../static/tsne_2d.png" alt="2D Scatter plot" srcset="">
+			<figcaption>2D Scatter plot</figcaption>
+		</figure>
+		<figure>
+			<embed type="text/html" src="../static/tsne_3d.html" style="width: 600px; height:600px;"> 
+			<figcaption>3D Scatter plot</figcaption>
+		</figure>
+	</div>
 
 {% endblock %}

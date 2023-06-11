@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CS 180 Project{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+  <title>CS 180 Project{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href=".">Home</a></li>
-            <li><a href="./predict">Predict</a></li>
-            <li><a href="./clusters">Clusters</a></li>
-            <li><a href="./about">About</a></li>
-            <li><a href="./contact">Contact</a></li>
-        </ul> 
-    </nav>
-    <main>
-        {% block main %}{% endblock %}
-    </main>
-    <footer>
-        <a href="https://github.com/rudnam/cs180-project">Github page</a> 
-    </footer>
+  <nav class="navbar">
+    <ul>
+      <li><a href=".">Home</a></li>
+      <li><a href="./predict">Predict</a></li>
+      <li><a href="./clusters">Clusters</a></li>
+      <li><a href="./about">About</a></li>
+      <li><a href="./contact">Contact</a></li>
+    </ul> 
+  </nav>
+  <main>
+    {% block main %}{% endblock %}
+  </main>
+  <footer>
+    <a href="https://github.com/rudnam/cs180-project">Github page</a> 
+  </footer>
 </body>
 </html>
