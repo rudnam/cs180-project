@@ -1,12 +1,14 @@
 # CS 180 project: Predictive model of household income using clustering
 
-Jupyter notebook [link](https://colab.research.google.com/drive/1ZINpKCB4fgwIflOegEl8fXuPwnB5cwal?usp=sharing&authuser=1#scrollTo=XBLhtzz22Xw_)
+Data set [https://www.kaggle.com/datasets/grosvenpaul/family-income-and-expenditure](https://www.kaggle.com/datasets/grosvenpaul/family-income-and-expenditure)
 
-Web app [link](https://cs180-project.onrender.com/)
+Google colab [https://colab.research.google.com/drive/13gjczh-z4OHZHS1QJRjv6Qr5TqE3LhEj?usp=sharing](https://colab.research.google.com/drive/13gjczh-z4OHZHS1QJRjv6Qr5TqE3LhEj?usp=sharing)
+
+Web app [https://cs180-project.onrender.com/](https://cs180-project.onrender.com/)
 
 ## Description
 
-In this project, a dataset based on the Family Income and Expenditure Survey (FIES) in the Philippines is put through K-means clustering. Through clustering, we aim to figure out possible classifications for households using the data from the dataset. We suspect that the clusters will be correlated with income or geographic areas from which a household belongs.
+This project involves analyzing a dataset derived from the Family Income and Expenditure Survey (FIES) in the Philippines using K-means clustering. The goal is to identify potential household classifications by leveraging the dataset's information. Our hypothesis suggests that these classifications will likely be associated with income levels and geographic regions. 
 
 ## Dev
 
