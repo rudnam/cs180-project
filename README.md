@@ -1,4 +1,4 @@
-# CS 180 project: Predictive model of household income using clustering
+# CS 180 project: Clustering of Filipino Households using K-Means
 
 Data set [https://www.kaggle.com/datasets/grosvenpaul/family-income-and-expenditure](https://www.kaggle.com/datasets/grosvenpaul/family-income-and-expenditure)
 
