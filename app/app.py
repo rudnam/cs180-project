@@ -30,7 +30,8 @@ def clusters():
     if request.method == 'POST':
         cluster_number = int(request.form.to_dict()['cluster-number'])
         results = cluster_describer.summarize_cluster(cluster_number)
-        return render_template('clusters_info.html', results=results)
+        image = f'cluster{cluster_number}.png'
+        return render_template('clusters_info.html', results=results, image=image)
 
     return render_template('clusters.html')
 
